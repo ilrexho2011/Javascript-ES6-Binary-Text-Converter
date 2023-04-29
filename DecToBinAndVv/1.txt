@@ -1,1 +1,5 @@
+Javascript ES6 Decimal to Binary and vice-versa Number Converter
 
+In this example, we have two radio buttons to select the conversion type (Decimal to Binary or Binary to Decimal) and an input field to input the number to be converted.
+When the user clicks the "Convert" button, the convertNumber function is called, which retrieves the input number and conversion type from the HTML elements, calls the appropriate conversion function, and updates the result paragraph with the converted number.
+Note that we've also included the decimalToBinary and binaryToDecimal functions from the previous example within the script tags of the HTML file.
