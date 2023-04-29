@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Converter</title>
+  </head>
+  <body>
+    <h1>Number Converter</h1>
+    <p>
+      <input type="radio" id="decimalToBinary" name="conversionType" value="decimalToBinary">
+      <label for="decimalToBinary">Decimal to Binary</label>
+    </p>
+    <p>
+      <input type="radio" id="binaryToDecimal" name="conversionType" value="binaryToDecimal">
+      <label for="binaryToDecimal">Binary to Decimal</label>
+    </p>
+    <label for="inputNumber">Enter the number to be converted:</label>
+    <input type="number" id="inputNumber">
+    <button onclick="convertNumber()">Convert</button>
+    <p id="result"></p>
+    <script>
+      const decimalToBinary = (num) => {
+        let binary = '';
+        while (num > 0) {
+          binary = (num % 2) + binary;
+          num = Math.floor(num / 2);
+        }
+        return binary;
+      }
+      const binaryToDecimal = (binary) => {
+        let decimal = 0;
+        for (let i = 0; i < binary.length; i++) {
+          decimal += parseInt(binary[binary.length - 1 - i]) * Math.pow(2, i);
+        }
+        return decimal;
+      }
+
+      const convertNumber = () => {
+        const inputNumber = document.getElementById('inputNumber').value;
+        const conversionType = document.querySelector('input[name="conversionType"]:checked').value;
+        let result = '';
+        if (conversionType === 'decimalToBinary') {
+          result = decimalToBinary(inputNumber);
+        } else {
+          result = binaryToDecimal(inputNumber);
+        }
+        document.getElementById('result').textContent = result;
+      }
+    </script>
+  </body>
+</html>
